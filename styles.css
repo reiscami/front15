@@ -1,0 +1,73 @@
+.grid-container {
+     display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas: 
+        "header menu" 
+        "main main"    
+        "footer footer";
+    height: 100vh;  
+}
+
+
+.old-standard-tt-regular {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header {
+    grid-area: header;
+    font-size: 40px;
+    font-style: italic;
+    background-color: aliceblue;
+    font-family:  "Old Standard TT", serif;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
+.menu {
+    grid-area: menu;
+    background-color: aliceblue;
+    padding: 15px;
+}
+
+.main {
+    grid-area: main;
+    background-color:  rgb(204, 227, 248);
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid #d2b48c;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    margin: 12px;
+    width: 100px;
+    height: 600px;
+}
+
+/* Estilo do rodapé */
+.footer {
+    grid-area: footer;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsividade: em telas menores, o menu vai para baixo e ocupa a largura inteira */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Coloca o conteúdo e o menu em uma coluna */
+        grid-template-areas: 
+            "header"
+            "main"
+            "menu"
+            "footer";
+    }
+
+    .menu {
+        justify-content: center;  /* Centraliza o menu no celular */
+        padding: 10px;
+    }
+}
